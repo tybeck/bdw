@@ -5,7 +5,7 @@
  * @version 1.0.0
  */
 
-var utils = new require('../utilities'),
+var utils = new require('./helpers/utilities'),
 
 	factory = null;
 

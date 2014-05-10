@@ -5,7 +5,7 @@
  * @version 1.0.0
  */
 
-var utils = new require('../utilities'),
+var utils = new require('./helpers/utilities'),
 
 	factory = null;
 
@@ -138,6 +138,22 @@ var crawler = {
 
 	},
 
+	wrapSchema: function(products) {
+
+		products.forEach(function(element, index) {
+
+			products[index] = Object({
+
+				'product': element
+
+			});
+
+		});
+
+		return products;
+
+	},
+
 	loopDetails: function(me, index) {
 
 		var self = this;
@@ -146,7 +162,7 @@ var crawler = {
 
 		if(index > (me.products.length - 1)) {
 
-			return(factory.create(me.products));
+			return(factory.create(me.wrapSchema(me.products)));
 
 		}
 

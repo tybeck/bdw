@@ -20,7 +20,7 @@ var fs = require('fs'),
 
 var factory = {
 
-	filepath: 'crawled.json',
+	filepath: 'data/crawled.json',
 
 	/**
 	 * Logger to terminal
@@ -82,9 +82,11 @@ var factory = {
 
 	create: function(data) {
 
-		if(this.removeFile(this.filepath)) {
+		var directory = casper.cli.args[2];
 
-			var stream = fs.open(this.filepath, 'w+');
+		if(this.removeFile(directory + this.filepath)) {
+
+			var stream = fs.open((directory + this.filepath), 'w+');
 
 			stream.write(JSON.stringify(((data != null) ? 
 				this.wrap(data) : 

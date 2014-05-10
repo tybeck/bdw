@@ -9,6 +9,7 @@ node_modules/
 
 .DS_Store
 
+.sass-cache/
 iads/
 www/assets/css/*
 crawled.json
